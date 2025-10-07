@@ -1,5 +1,5 @@
 using System;
-
+using System.IO;
 class Program
 {
     static void Main(string[] args)
@@ -52,13 +52,18 @@ class Program
                 // Get date
                 today = DateTime.Today;
 
-                // Display prompt
-                promptNumber = randomGenerator.Next(0, promptBank.Count);
-                currentPrompt = promptBank[promptNumber];
-                Console.WriteLine(currentPrompt);
+                Console.WriteLine("To get a new prompt: Type 'new prompt'");
 
-                // Get response
-                response = Console.ReadLine();
+                do
+                {
+                    // Display prompt
+                    promptNumber = randomGenerator.Next(0, promptBank.Count);
+                    currentPrompt = promptBank[promptNumber];
+                    Console.WriteLine(currentPrompt);
+
+                    // Get response
+                    response = Console.ReadLine();
+                } while (response == "new prompt");
 
                 // Save entry information
                 currentEntry = new Entry();
@@ -77,14 +82,40 @@ class Program
             {
                 Console.WriteLine("What is the filename?");
                 filename = Console.ReadLine();
-                //NOT DONE
+
+                string[] lines = System.IO.File.ReadAllLines(filename);
+
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split("~");
+
+                    string dateFile = parts[0];
+                    string promptFile = parts[1];
+                    string responseFile = parts[2];
+
+                    currentEntry = new Entry();
+                    currentEntry._date = dateFile;
+                    currentEntry._prompt = promptFile;
+                    currentEntry._response = responseFile;
+                    journal._entries.Add(currentEntry);
+
+                }
             }
 
             else if (choice == 4)
             {
                 Console.WriteLine("What is the filename?");
                 filename = Console.ReadLine();
-                //NOT DONE
+                
+                using (StreamWriter outputFile = new StreamWriter(filename))
+                {
+
+                    foreach (Entry entry in journal._entries)
+                    {
+                        outputFile.WriteLine($"{entry._date}~{entry._prompt}~{entry._response}");
+                    }
+
+                }
             }
 
         } while (choice != 5);
