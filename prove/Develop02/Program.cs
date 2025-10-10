@@ -54,6 +54,7 @@ class Program
 
                 Console.WriteLine("To get a new prompt: Type 'new prompt'");
 
+                // Exceeding requirements by changing the prompt when requested by the user
                 do
                 {
                     // Display prompt
