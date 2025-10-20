@@ -7,8 +7,9 @@ class Word
     }
     public void HideWord() // Logic for hiding the word
     {
+        int length = _word.Length;
         _word = "_";
-        int length = _word.Count();
+        
         for(int i = 1; i < length; i++)
         {
             _word = _word + "_";

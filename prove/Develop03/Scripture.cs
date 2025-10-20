@@ -26,7 +26,6 @@ class Scripture
 
         foreach (string word in text.Split(' ')) // Makes sure each word is by itself (has limitations)
         {
-            Console.WriteLine(word);
             Word currentWord = new Word(word);
             _words.Add(currentWord);
         }
@@ -45,10 +44,10 @@ class Scripture
     }
     public void HideWord()
     {
-        int wordsToHide = randomGenerator.Next(0, _words.Count()/4); // Sets the amount of words to hide (never more than a quarter of the total word count)
+        int wordsToHide = randomGenerator.Next(0, _words.Count/4); // Sets the amount of words to hide (never more than a quarter of the total word count)
         for (int i = 0; i < wordsToHide; i++)
         {
-            int number = randomGenerator.Next(0, _words.Count());
+            int number = randomGenerator.Next(0, _words.Count);
             _words[number].HideWord();
         }
     }
