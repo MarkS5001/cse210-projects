@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         // Initialize variables for random scripture
         ReadFile file = new ReadFile();
         file.GetFileContents();
@@ -20,7 +21,6 @@ class Program
         string text = scriptureRandom.RandomComponent()[1];
         string references = scriptureRandom.RandomComponent()[0];
         Scripture scripture = new Scripture(references, text);
-        Console.Clear();
 
         do
         {
