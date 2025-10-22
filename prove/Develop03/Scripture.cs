@@ -2,7 +2,7 @@ class Scripture
 {
     private List<Word> _words = new List<Word>();
     private Reference _reference;
-    private Random randomGenerator = new Random();
+    private Random _randomGenerator = new Random();
     public Scripture(string reference, string text)
     {
         // Split reference depending on if - is present (for multiple verses)
@@ -42,10 +42,10 @@ class Scripture
     }
     public void HideWord() // Logic to hide words
     {
-        int wordsToHide = randomGenerator.Next(0, _words.Count / 4); // Sets the amount of words to hide (never more than a quarter of the total word count)
+        int wordsToHide = _randomGenerator.Next(0, _words.Count / 4); // Sets the amount of words to hide (never more than a quarter of the total word count)
         for (int i = 0; i < wordsToHide; i++)
         {
-            int number = randomGenerator.Next(0, _words.Count);
+            int number = _randomGenerator.Next(0, _words.Count);
             _words[number].HideWord();
         }
     }

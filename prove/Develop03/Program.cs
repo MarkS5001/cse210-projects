@@ -4,9 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Initialize needed variables
+        // Initialize variables for random scripture
+        ReadFile file = new ReadFile();
+        file.GetFileContents();
+        RandomList scriptureRandom = new RandomList();
+
+        foreach (string currentLine in file.SendFileLines())
+        {
+            scriptureRandom.MakeList(currentLine.Split('~')[0], currentLine.Split('~')[1]);
+        }
+
+        // Initialize variables for loop, and memorization
         string quit = "";
-        Scripture scripture = new Scripture("Proverbs 3:5-6", "Trust in the Lord with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.");
+        // Scripture scripture = new Scripture("Proverbs 3:5-6", "Trust in the Lord with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.");
+        string text = scriptureRandom.RandomComponent()[1];
+        string references = scriptureRandom.RandomComponent()[0];
+        Scripture scripture = new Scripture(references, text);
+        Console.Clear();
 
         do
         {
