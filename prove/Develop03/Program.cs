@@ -7,6 +7,7 @@ class Program
         Console.Clear();
         // Initialize variables for random scripture
         ReadFile file = new ReadFile();
+        file.FileName("Scripture Bank.txt");
         file.GetFileContents();
         RandomList scriptureRandom = new RandomList();
 

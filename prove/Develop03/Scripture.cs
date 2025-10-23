@@ -42,8 +42,9 @@ class Scripture
     }
     public void HideWord() // Logic to hide words
     {
-        int wordsToHide = _randomGenerator.Next(0, _words.Count / 4); // Sets the amount of words to hide (never more than a quarter of the total word count)
-        for (int i = 0; i < wordsToHide; i++)
+        int wordsToHide = _randomGenerator.Next(1, _words.Count / 4); // Sets the amount of words to hide (never more than a quarter of the total word count)
+        
+        for (int i=0; i < wordsToHide; i++)
         {
             int number = _randomGenerator.Next(0, _words.Count);
             _words[number].HideWord();
