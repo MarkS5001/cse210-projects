@@ -1,5 +1,4 @@
-using System;
-
+// To exceed requirements, I created two other classes to load scriptures from a file
 class Program
 {
     static void Main(string[] args)
@@ -27,8 +26,8 @@ class Program
         {
             scripture.Display();
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
-            
-            if(Console.ReadLine()=="quit" || scripture.AllHidden() == "quit") // Check quit status
+
+            if (Console.ReadLine() == "quit" || scripture.AllHidden() == "quit") // Check quit status
             {
                 quit = "quit";
             }
