@@ -1,19 +1,19 @@
 class ReadFile
 {
     private List<string> _fileLines = new List<string>();
-    private string _filename;
+    private string _fileName;
     public void FileName()
     {
-        Console.WriteLine("What is the filename? (Note to instructor, the file name is 'Scripture Bank.txt')");
-        _filename = Console.ReadLine();
+        Console.WriteLine("What is the filename?");
+        _fileName = Console.ReadLine();
     }
     public void FileName(string filename)
     {
-        _filename = filename;
+        _fileName = filename;
     }
     public void GetFileContents()
     {
-        string[] lines = System.IO.File.ReadAllLines(_filename);
+        string[] lines = System.IO.File.ReadAllLines(_fileName);
 
         foreach (string line in lines)
         {
