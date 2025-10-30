@@ -1,7 +1,7 @@
 class Assignment
 {
     protected string _studentName;
-    protected string _topic;
+    private string _topic;
     public Assignment(string studentName, string topic)
     {
         _studentName = studentName;
