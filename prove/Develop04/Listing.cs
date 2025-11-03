@@ -1,6 +1,6 @@
 class Listing : Activity
 {
-    private List<string> _prompts = new List<string> { "1", "2", "3" }; // List for prompts
+    private List<string> _prompts = new List<string> { "Who are people that you appreciate?", "What are personal strengths of yours?", "Who are people that you have helped this week?", "When have you felt the Holy Ghost this month?", "Who are some of your personal heroes?" }; // List for prompts
     private int _itemCounter;
     private int _index; // Stores random index for prompt, and question
     private string _currentPrompt; // Stores current prompt
