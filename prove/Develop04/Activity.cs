@@ -16,7 +16,7 @@ class Activity
         Console.WriteLine(_description);
         Console.WriteLine();
         Console.WriteLine("How long, in seconds, would you like for your session? ");
-        _time = int.Parse(Console.ReadLine()) * 1000; // Time in milliseconds
+        _time = int.Parse(Console.ReadLine()); // Time in seconds
         Console.Clear();
         Console.WriteLine("Get Ready...");
         Spinner();
@@ -30,7 +30,7 @@ class Activity
     }
     public void Spinner() // Wait animation
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
             Console.Write("-"); // Display character
             Thread.Sleep(500); // Wait time (milliSeconds)

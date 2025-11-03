@@ -24,7 +24,7 @@ class Reflection : Activity
     {
         _index = _random.Next(0, _questions.Count);
         _currentQuestion = _questions[_index];
-        _questions.RemoveAt(_index);
+        // _questions.RemoveAt(_index);
     }
     public void StartReflection() // Reflection activity logic
     {
