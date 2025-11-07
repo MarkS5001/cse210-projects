@@ -1,4 +1,4 @@
-class Program
+class Program // To Exceed requirements I added functionality to keep track of the program's use
 {
     static void Main(string[] args)
     {
