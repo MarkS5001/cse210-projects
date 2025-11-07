@@ -3,6 +3,7 @@ class Activity
     protected int _time; // Duration of activities
     private string _description; // Individual activity description
     private string _name; // Individual activity name
+    ReadWriteFile file = new ReadWriteFile("Activity Tracker.txt");
     public Activity(string name, string description)
     {
         _name = name;
@@ -27,6 +28,9 @@ class Activity
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_time} seconds of the {_name} activity.");
         Spinner();
+        file.GetFileContents();
+        file.SaveContents(_name, _time);
+        file.ExportContents();
     }
     public void Spinner() // Wait animation
     {
