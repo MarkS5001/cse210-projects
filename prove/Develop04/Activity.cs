@@ -28,9 +28,9 @@ class Activity
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_time} seconds of the {_name} activity.");
         Spinner();
-        file.GetFileContents();
+        // file.GetFileContents();
         file.SaveContents(_name, _time);
-        file.ExportContents();
+        // file.ExportContents();
     }
     public void Spinner() // Wait animation
     {

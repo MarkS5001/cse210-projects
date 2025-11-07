@@ -35,8 +35,9 @@ class ReadWriteFile
         return _fileLines;
     }
     public void SaveContents(string name, int duration)
-    {
-        _fileLines.Add($"{DateTime.Now}~{name}~{duration}");
+    { 
+        // _fileLines.Add($"{DateTime.Now}~{name}~{duration}");
+        System.IO.File.AppendAllText(_fileName, $"\n{DateTime.Now}~{name}~{duration}"); // Appends new line to the txt file
     }
     public void ExportContents()
     {
@@ -54,8 +55,5 @@ class ReadWriteFile
         {
             Console.WriteLine(line);
         }
-        Console.WriteLine();
-        Console.WriteLine("Press enter to quit");
-        Console.ReadLine();
     }
 }
