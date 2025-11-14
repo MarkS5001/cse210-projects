@@ -33,7 +33,7 @@ class Goal
     {
         return _pointValue;
     }
-    public string Display()
+    public virtual string Display()
     {
         return $"[{_completed}] {_name} ({_description})";
     }
