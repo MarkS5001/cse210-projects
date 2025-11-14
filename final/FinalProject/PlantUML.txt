@@ -1,0 +1,39 @@
+/'Game where you start in your house. You can visit any house in the village. You can interact with everyone, and everything. You are trying to find all your homework after the dog stole it. '/
+
+@startuml
+'base classes
+class People
+{
+}
+
+'Regular classes
+class Building /'I will have multiple types of buildings'/
+{
+#_rooms : List<Room> /' A building is made up of rooms'/
+-_name : string /' Buildings have names'/
+-_description : string /' Description of what the builing is/looks like'/
+
++Building(name : string, description : string) /'Needed for initial creation (probably). Will also need to create room list (most likely in derived class)'/
++Display() : string /'For displaying the building to the terminal'/
+}
+
+class Room /'I will have multiple types of rooms'/
+{
+#_funitures : List<Furniture> /'Room is made up of furniture'/
+-_name : string /'Rooms are named'/
+-_description :string /'Description for user of what the room is/what is looks like'/
+
++Room(name : string, description : string) /'Needed for initial creation (probably). Will also need to create room list (most likely in derived class)'/
++Display() : string
+}
+
+class Furniture /'I will have multiple types of furnitures'/
+{
+-_names : string
+-_objects : List<string>
+
++Furniture(objects : List<string>) /'Set initial objects in/on furniture'/
++Display() : string 
+}
+
+@enduml
