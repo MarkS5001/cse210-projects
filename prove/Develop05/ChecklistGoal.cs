@@ -7,7 +7,12 @@ class ChecklistGoal : Goal
     {
         _bonusValue = bonusValue;
         _timesCompleted = timesCompleted;
-        _targetCompletion = targetCompletion;       
+        _targetCompletion = targetCompletion;
+
+        if (_timesCompleted == _targetCompletion)
+        {
+            _completed = "X";
+        } 
     }
     public ChecklistGoal()
     {
@@ -56,6 +61,10 @@ class ChecklistGoal : Goal
     }
     public override string SaveGoal()
     {
-        return $"ChecklistGoal~{_name}~{_description}~{_pointValue}~{_bonusValue}~{_targetCompletion}~{_timesCompleted}";
+        return $"ChecklistGoal~{_name}~{_description}~{_pointValue}~{_bonusValue}~{_timesCompleted}~{_targetCompletion}";
+    }
+    public override string Display()
+    {
+        return $"[{_completed}] {_name} ({_description}) ({_timesCompleted}/{_targetCompletion})";
     }
 }
