@@ -1,0 +1,4 @@
+21
+SimpleGoal~bob~get bob~1~X
+EternalGoal~bill~get bill~2
+ChecklistGoal~joel~get joel~3~50~0~10

@@ -1,5 +1,3 @@
-using System.Diagnostics.Metrics;
-
 class Menu
 {
     private int _totalPoints = 0;
@@ -75,27 +73,77 @@ class Menu
 
             if (_menuChoice == 1)
             {
-                
+                Console.WriteLine();
+                Console.WriteLine("The types of goals are: ");
+                Console.WriteLine("  1. Simple goal");
+                Console.WriteLine("  2. Eternal goal");
+                Console.WriteLine("  3. Checklist goal");
+                Console.WriteLine("Which type of goal would you like to create? ");
+                int currentChoice = int.Parse(Console.ReadLine());
+
+                if (currentChoice == 1)
+                {
+                    SimpleGoal currentGoal = new SimpleGoal();
+                    currentGoal.GetGoal();
+                    _goals.Add(currentGoal);
+                }
+                else if (currentChoice == 2)
+                {
+                    Goal currentGoal = new Goal();
+                    currentGoal.GetGoal();
+                    _goals.Add(currentGoal);
+                }
+                else if (currentChoice == 3)
+                {
+                    ChecklistGoal currentGoal = new ChecklistGoal();
+                    currentGoal.GetGoal();
+                    _goals.Add(currentGoal);
+                }
             }
 
             else if (_menuChoice == 2)
             {
-                
+                Console.WriteLine();
+                Console.WriteLine("The goals are: ");
+                int i = 0;
+
+                foreach (Goal currentGoal in _goals)
+                {
+                    i++;
+                    Console.WriteLine($"{i}.  {currentGoal.Display()}");
+                }
             }
 
             else if (_menuChoice == 3)
             {
-                
+                SaveFile();
             }
 
             else if (_menuChoice == 4)
             {
-                
+                GetFile();
             }
 
             else if (_menuChoice == 5)
             {
-                
+                Console.WriteLine();
+                Console.WriteLine("The goals are:");
+                int i = 0;
+
+                foreach (Goal currentGoal in _goals)
+                {
+                    i++;
+                    Console.WriteLine($"{i}.  {currentGoal.GetName()}");
+                }
+                Console.WriteLine("Which goal did you accomplish? ");
+                int userChoice = int.Parse(Console.ReadLine());
+
+                int pointsEarned = _goals[userChoice-1].RecordEvent();
+                _totalPoints += pointsEarned;
+
+                Console.WriteLine();
+                Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
+                Console.WriteLine($"You now have {_totalPoints} points!");
             }
         }
     }

@@ -41,4 +41,8 @@ class Goal
     {
         return $"EternalGoal~{_name}~{_description}~{_pointValue}";
     }
+    public string GetName()
+    {
+        return _name;
+    }
 }
