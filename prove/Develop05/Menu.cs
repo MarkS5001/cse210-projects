@@ -37,6 +37,11 @@ class Menu
                     ChecklistGoal currentGoal = new ChecklistGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]));
                     _goals.Add(currentGoal);
                 }
+                else if (parts[0] == "BadGoal")
+                {
+                    BadGoal currentGoal = new BadGoal(parts[1], parts[2], int.Parse(parts[3]));
+                    _goals.Add(currentGoal);
+                }
             }
         }
     }
@@ -78,6 +83,7 @@ class Menu
                 Console.WriteLine("  1. Simple goal");
                 Console.WriteLine("  2. Eternal goal");
                 Console.WriteLine("  3. Checklist goal");
+                Console.WriteLine("  4. Bad habits goal");
                 Console.WriteLine("Which type of goal would you like to create? ");
                 int currentChoice = int.Parse(Console.ReadLine());
 
@@ -96,6 +102,12 @@ class Menu
                 else if (currentChoice == 3)
                 {
                     ChecklistGoal currentGoal = new ChecklistGoal();
+                    currentGoal.GetGoal();
+                    _goals.Add(currentGoal);
+                }
+                else if (currentChoice == 4)
+                {
+                    BadGoal currentGoal = new BadGoal();
                     currentGoal.GetGoal();
                     _goals.Add(currentGoal);
                 }
